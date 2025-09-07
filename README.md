@@ -1,14 +1,20 @@
-SqueezeNet from Scratch with Numba CUDA
+# SqueezeNet from Scratch with Numba CUDA
+
 Welcome to an optimized, high-performance implementation of SqueezeNet, meticulously crafted from the ground up using Python and Numba CUDA. This project delivers an impressive 92% accuracy on the Tomato Disease dataset, achieving a blazing-fast 0.024s/image inference time and a 1000x speedup compared to NumPy. Harnessing the power of CUDA, this implementation is designed for speed, scalability, and ease of use.
-Project Overview
+
+## Project Overview
+
 This project reimagines SqueezeNet with a focus on performance and modularity. By leveraging CUDA-accelerated operations, it achieves unparalleled efficiency in training and inference. The codebase is structured for clarity, maintainability, and extensibility, making it ideal for researchers and developers working on deep learning tasks with GPU acceleration.
-Results
 
-Accuracy: Achieves 92% accuracy on the Tomato Disease dataset.
-Inference Speed: Processes images in just 0.024 seconds, a 1000x speedup over NumPy.
-Optimization: Fully CUDA-accelerated operations for maximum performance on NVIDIA GPUs.
+## Results
 
-Directory Structure
+- **Accuracy**: Achieves 92% accuracy on the Tomato Disease dataset.
+- **Inference Speed**: Processes images in just 0.024 seconds, a 1000x speedup over NumPy.
+- **Optimization**: Fully CUDA-accelerated operations for maximum performance on NVIDIA GPUs.
+
+## Directory Structure
+
+```
 src/
 ├── config.py              # Configuration settings and constants
 ├── utils.py               # Utility functions and shared imports
@@ -25,26 +31,31 @@ src/
     ├── relu.py            # ReLU activation operations
     ├── fire_module.py     # Fire module operations
     └── utils.py           # CUDA utility functions
+```
 
-Installation
+## Installation
 
-Install dependencies:
-
+1. Install dependencies:
+```bash
 pip install -r requirements.txt
+```
 
+2. Ensure you have the CUDA toolkit installed and an NVIDIA GPU with CUDA support.
 
-Ensure you have the CUDA toolkit installed and an NVIDIA GPU with CUDA support.
+## Usage
 
-Usage
-Running Training
+### Running Training
 Kickstart training with a single command:
+```python
 from src.main import main
 
 # Launch training
 weights, loss_history, acc_history = main()
+```
 
-Using Individual Modules
+### Using Individual Modules
 For fine-grained control, you can work with specific modules:
+```python
 # Load and preprocess data
 from src.data import load_datasets, create_data_loaders
 train_ds, test_ds, categories = load_datasets()
@@ -58,51 +69,48 @@ weights, loss_history, acc_history = train_model(train_loader)
 from src.cuda_ops.conv import run_conv2d_cuda
 from src.cuda_ops.relu import run_Relu_Cuda
 # ... additional CUDA operations
+```
 
-Configuration
-Customize your training setup by editing src/config.py to tweak:
+## Configuration
 
-Dataset paths
-Batch size
-Learning rate
-Number of epochs
+Customize your training setup by editing `src/config.py` to tweak:
+- Dataset paths
+- Batch size
+- Learning rate
+- Number of epochs
 
-Key Features
+## Key Features
 
-CUDA Acceleration: All core operations are optimized for NVIDIA GPUs using CUDA, delivering lightning-fast performance.
-Modular Architecture: Cleanly separated modules ensure easy maintenance and extensibility.
-Efficient Memory Management: Automatic GPU memory handling for seamless operation.
+1. **CUDA Acceleration**: All core operations are optimized for NVIDIA GPUs using CUDA, delivering lightning-fast performance.
+2. **Modular Architecture**: Cleanly separated modules ensure easy maintenance and extensibility.
+3. **Efficient Memory Management**: Automatic GPU memory handling for seamless operation.
 
-CUDA Operations
-Convolution
+## CUDA Operations
 
-run_conv2d_cuda(): High-performance 2D convolution
-run_conv2d_cuda_shared_2(): Optimized 2D convolution with shared memory
-run_conv_backward(): Backward pass for convolution layers
+### Convolution
+- `run_conv2d_cuda()`: High-performance 2D convolution
+- `run_conv2d_cuda_shared_2()`: Optimized 2D convolution with shared memory
+- `run_conv_backward()`: Backward pass for convolution layers
 
-Pooling
+### Pooling
+- `run_maxpool2d_cuda()`: Fast 2D max pooling
+- `run_global_average_Cuda()`: Global average pooling
+- `run_maxpooling_backward()`: Backward pass for max pooling
 
-run_maxpool2d_cuda(): Fast 2D max pooling
-run_global_average_Cuda(): Global average pooling
-run_maxpooling_backward(): Backward pass for max pooling
+### Activation
+- `run_Relu_Cuda()`: Efficient ReLU activation
+- `run_relu_backward()`: Backward pass for ReLU
 
-Activation
+### Softmax
+- `run_softmax_cuda()`: Optimized softmax operation
+- `run_softmax_backward()`: Backward pass for softmax
 
-run_Relu_Cuda(): Efficient ReLU activation
-run_relu_backward(): Backward pass for ReLU
+### Fire Module
+- `fire_module_cuda()`: Forward pass for SqueezeNet's Fire module
+- `run_firemodule_backward()`: Backward pass for Fire module
 
-Softmax
+## Notes
 
-run_softmax_cuda(): Optimized softmax operation
-run_softmax_backward(): Backward pass for softmax
-
-Fire Module
-
-fire_module_cuda(): Forward pass for SqueezeNet's Fire module
-run_firemodule_backward(): Backward pass for Fire module
-
-Notes
-
-Ensure your GPU has sufficient memory to handle the selected batch size.
-The code is fine-tuned for NVIDIA GPUs with CUDA support.
-Adjust TPB (Threads Per Block) in CUDA operations based on your GPU's specifications for optimal performance.
+- Ensure your GPU has sufficient memory to handle the selected batch size.
+- The code is fine-tuned for NVIDIA GPUs with CUDA support.
+- Adjust TPB (Threads Per Block) in CUDA operations based on your GPU's specifications for optimal performance.
