@@ -109,8 +109,3 @@ Customize your training setup by editing `src/config.py` to tweak:
 - `fire_module_cuda()`: Forward pass for SqueezeNet's Fire module
 - `run_firemodule_backward()`: Backward pass for Fire module
 
-## Notes
-
-- Ensure your GPU has sufficient memory to handle the selected batch size.
-- The code is fine-tuned for NVIDIA GPUs with CUDA support.
-- Adjust TPB (Threads Per Block) in CUDA operations based on your GPU's specifications for optimal performance.
