@@ -1,6 +1,6 @@
 # SqueezeNet from Scratch with Numba CUDA
 
-Welcome to an optimized, high-performance implementation of SqueezeNet, meticulously crafted from the ground up using Python and Numba CUDA. This project delivers an impressive 92% accuracy on the Tomato Disease dataset, achieving a blazing-fast 0.024s/image inference time and a 1000x speedup compared to NumPy. Harnessing the power of CUDA, this implementation is designed for speed, scalability, and ease of use.
+Welcome to an optimized, high-performance implementation of SqueezeNet, meticulously crafted from the ground up using Python and Numba CUDA. This project delivers an impressive 92% accuracy on the Tomato Disease dataset, achieving a blazing-fast 0.02s/image inference time and a 1000x speedup compared to NumPy. Harnessing the power of CUDA, this implementation is designed for speed, scalability, and ease of use.
 
 ## Project Overview
 
