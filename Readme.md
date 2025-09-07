@@ -73,9 +73,7 @@ Chỉnh sửa file `src/config.py` để thay đổi:
 
 1. **CUDA Operations**: Tất cả các operations chính đều được implement trên CUDA
 2. **Modular Design**: Code được chia thành các module nhỏ, dễ maintain
-3. **Type Safety**: Sử dụng type hints để đảm bảo code quality
-4. **Configurable**: Dễ dàng thay đổi các tham số thông qua config file
-5. **Memory Management**: Tự động quản lý memory GPU
+3. **Memory Management**: Tự động quản lý memory GPU
 
 ## CUDA Operations
 
@@ -106,3 +104,4 @@ Chỉnh sửa file `src/config.py` để thay đổi:
 - Đảm bảo GPU có đủ memory cho batch size đã chọn
 - Code được tối ưu cho NVIDIA GPUs với CUDA support
 - Có thể cần điều chỉnh TPB (Threads Per Block) tùy theo GPU
+
