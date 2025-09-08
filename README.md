@@ -4,16 +4,16 @@ Welcome to an optimized, high-performance implementation of SqueezeNet, meticulo
 
 ## Dataset
 
-Dự án này sử dụng **Tomato Diseases Dataset** được công bố trên Kaggle:  
+This project uses the **Tomato Diseases Dataset** available on Kaggle:  
 [https://www.kaggle.com/datasets/luisolazo/tomato-diseases](https://www.kaggle.com/datasets/luisolazo/tomato-diseases)
 
-### Cấu trúc dataset
-Dataset bao gồm thư mục `train` và `test`, với tổng cộng 10 lớp bệnh trên lá cà chua.  
+### Dataset Structure
+The dataset contains two main folders: `train` and `test`, with a total of **10 tomato leaf disease classes**.
 
-- **Train**: Dùng để huấn luyện mô hình  
-- **Test**: Dùng để đánh giá mô hình  
+- **Train**: Used for training the model  
+- **Test**: Used for evaluating the model  
 
-Trong file `src/config.py`, đường dẫn dataset được cấu hình sẵn:
+In the `src/config.py` file, the dataset paths are already configured:
 ```python
 DIR_ROOT = '/kaggle/input/tomato-diseases'
 DIR_TRAIN = os.path.join(DIR_ROOT, 'train')
