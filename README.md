@@ -2,6 +2,25 @@
 
 Welcome to an optimized, high-performance implementation of SqueezeNet, meticulously crafted from the ground up using Python and Numba CUDA. This project delivers an impressive 92% accuracy on the Tomato Disease dataset, achieving a blazing-fast 0.02s/image inference time and a 1000x speedup compared to NumPy. Harnessing the power of CUDA, this implementation is designed for speed, scalability, and ease of use.
 
+## Dataset
+
+Dự án này sử dụng **Tomato Diseases Dataset** được công bố trên Kaggle:  
+[https://www.kaggle.com/datasets/luisolazo/tomato-diseases](https://www.kaggle.com/datasets/luisolazo/tomato-diseases)
+
+### Cấu trúc dataset
+Dataset bao gồm thư mục `train` và `test`, với tổng cộng 10 lớp bệnh trên lá cà chua.  
+
+- **Train**: Dùng để huấn luyện mô hình  
+- **Test**: Dùng để đánh giá mô hình  
+
+Trong file `src/config.py`, đường dẫn dataset được cấu hình sẵn:
+```python
+DIR_ROOT = '/kaggle/input/tomato-diseases'
+DIR_TRAIN = os.path.join(DIR_ROOT, 'train')
+DIR_TEST = os.path.join(DIR_ROOT, 'test')
+```
+
+
 ## Results
 
 - **Accuracy**: Achieves 92% accuracy on the Tomato Disease dataset.
